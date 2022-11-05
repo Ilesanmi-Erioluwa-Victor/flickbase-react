@@ -49,6 +49,12 @@ const userSchema = mongoose.Schema({
   },
 });
 
+// Methods..
+userSchema.statics.emailTaken = async function (email) {
+  const user = await this.findOne({ email });
+  return !!user;
+};
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = { User };
