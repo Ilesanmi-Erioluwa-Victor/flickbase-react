@@ -10,6 +10,7 @@ const authController = {
 
       //   Generate Token for user
       const token = await authService.genAuthToken(user);
+      return token;
       res.json(user);
 
       console.log(email, password);
