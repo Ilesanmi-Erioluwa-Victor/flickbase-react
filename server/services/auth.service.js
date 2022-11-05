@@ -1,4 +1,4 @@
-const createUser = async () => {
+const createUser = async (email, password) => {
   try {
   } catch (error) {}
 };
