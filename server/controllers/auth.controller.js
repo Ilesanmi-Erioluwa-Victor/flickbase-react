@@ -1,3 +1,5 @@
+const httpStatus = require("http-status");
+
 const { authService } = require("../services");
 
 const authController = {
@@ -10,8 +12,13 @@ const authController = {
 
       //   Generate Token for user
       const token = await authService.genAuthToken(user);
-      return token;
-      res.json(user);
+      //   setting res.cookie to user
+      res.cookie("x-access-token", token).status(httpStatus.CREATED).send({
+        user,
+        token,
+      });
+
+      //   res.json(user);
 
       console.log(email, password);
     } catch (error) {
