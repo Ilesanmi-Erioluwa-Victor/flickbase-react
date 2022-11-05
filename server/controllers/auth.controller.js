@@ -7,6 +7,7 @@ const authController = {
       const { email, password } = req.body;
 
       const user = await authService.createUser(email, password);
+      res.json(user);
 
       console.log(email, password);
     } catch (error) {

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 const userSchema = mongoose.Schema({
@@ -49,6 +50,17 @@ const userSchema = mongoose.Schema({
   },
 });
 
+// Hashing Password...
+userSchema.pre("save", async function (next) {
+  let user = this;
+  if (user.isModified("password")) {
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(user.password, salt);
+    user.password = hash;
+  }
+
+  next();
+});
 // Methods..
 userSchema.statics.emailTaken = async function (email) {
   const user = await this.findOne({ email });
