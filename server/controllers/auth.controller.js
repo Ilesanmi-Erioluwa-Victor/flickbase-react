@@ -1,6 +1,6 @@
 const authController = {
-  async Test(res, req, next) {
-    res.json({ ok: "Yes sire" });
+  async Test(req, res, next) {
+    res.json(console.log({ ok: "Yes sire" }));
   },
 };
 
