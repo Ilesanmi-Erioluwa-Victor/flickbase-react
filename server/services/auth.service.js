@@ -20,6 +20,12 @@ const createUser = async (email, password) => {
   }
 };
 
+const genAuthToken = async (user) => {
+  // generateAuthToken: method coming from user.js schema Method..
+  const token = await user.generateAuthToken();
+};
+
 module.exports = {
   createUser,
+  genAuthToken,
 };

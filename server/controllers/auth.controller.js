@@ -5,8 +5,11 @@ const authController = {
   async register(req, res, next) {
     try {
       const { email, password } = req.body;
-
+      //    created User
       const user = await authService.createUser(email, password);
+
+      //   Generate Token for user
+      const token = await authService.genAuthToken(user);
       res.json(user);
 
       console.log(email, password);

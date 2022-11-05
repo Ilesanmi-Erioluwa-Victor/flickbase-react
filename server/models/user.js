@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const userSchema = mongoose.Schema({
@@ -61,10 +62,15 @@ userSchema.pre("save", async function (next) {
 
   next();
 });
+
 // Methods..
 userSchema.statics.emailTaken = async function (email) {
   const user = await this.findOne({ email });
   return !!user;
+};
+
+userSchema.methods.generateAuthToken = async function () {
+  let user = await this;
 };
 
 const User = mongoose.model("User", userSchema);
