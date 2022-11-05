@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 require("dotenv").config();
 
 const articleSchema = mongoose.Schema({
@@ -27,7 +28,11 @@ const articleSchema = mongoose.Schema({
     required: true,
   },
 
-  actors: {},
+  actors: {
+    type: [String],
+    required: true,
+    validate,
+  },
 });
 
 const Article = mongoose.model("Article", articleSchema);
