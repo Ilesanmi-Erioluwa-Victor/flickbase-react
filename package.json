@@ -1,0 +1,25 @@
+{
+  "name": "flickbase-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ilesanmi-Erioluwa-Victor/flickbase-react.git"
+  },
+  "keywords": [
+    "React",
+    "Javscript",
+    "Formik",
+    "Mui"
+  ],
+  "author": "Ilesanmi Erioluwa Victor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ilesanmi-Erioluwa-Victor/flickbase-react/issues"
+  },
+  "homepage": "https://github.com/Ilesanmi-Erioluwa-Victor/flickbase-react#readme"
+}
