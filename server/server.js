@@ -8,6 +8,9 @@ const bodyParser = require("body-parser");
 const xss = require("xss-clean");
 const mongoSanitise = require("express-mongo-sanitize");
 
+// Route
+const routes = require("./routes");
+
 const mongoUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}?retryWrites=true&w=majority`;
 mongoose.connect(mongoUri);
 
