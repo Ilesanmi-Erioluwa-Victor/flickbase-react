@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 
+// routes
+const authRoute = require("./auth.route");
 const routesIndex = [
   {
     path: "/auth",
-    route: "",
+    route: authRoute,
   },
 ];
 
