@@ -1,8 +1,8 @@
-const getTest = async () => {
+const createUser = async () => {
   try {
   } catch (error) {}
 };
 
 module.exports = {
-  getTest,
+  createUser,
 };
