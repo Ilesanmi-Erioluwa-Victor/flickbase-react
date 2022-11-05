@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const validator = require("validator");
 require("dotenv").config();
 
 const articleSchema = mongoose.Schema({
@@ -31,7 +30,24 @@ const articleSchema = mongoose.Schema({
   actors: {
     type: [String],
     required: true,
-    validate,
+    validate: {
+      validator: function (array) {
+        // Validating the length of array..
+        return array.length >= 2;
+      },
+      message: "You must add atleast Three actors",
+    },
+  },
+  status: {
+    type: String,
+    required: true,
+    enum: ["draft", "public"],
+    default: "draft",
+    index: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
   },
 });
 
