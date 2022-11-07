@@ -22,7 +22,8 @@ const authController = {
 
       console.log(email, password);
     } catch (error) {
-      res.status(httpStatus.BAD_REQUEST).send(error.message);
+      // res.status(httpStatus.BAD_REQUEST).send(error.message);
+      next(error);
     }
   },
 
@@ -42,7 +43,8 @@ const authController = {
         token,
       });
     } catch (error) {
-      res.status(httpStatus.BAD_REQUEST).send(error.message);
+      // res.status(httpStatus.BAD_REQUEST).send(error.message);
+      next(error);
     }
   },
 };

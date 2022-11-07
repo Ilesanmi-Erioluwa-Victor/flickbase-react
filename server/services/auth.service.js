@@ -40,11 +40,11 @@ const signInWithEmailAndPassword = async (email, password) => {
     const user = await userService.findUserByEmail(email);
 
     if (!user) {
-      throw new Error(`Sorry, no Email found...`);
+      throw new ApiError(httpStatus.BAD_REQUEST, "Sorry, No email found...");
     }
 
     if (!(await user.comparePassword(password))) {
-      throw new Error(`Sorry, bad Password...`);
+      throw new ApiError(httpStatus.BAD_REQUEST, "Sorry, Bad Password...");
     }
 
     return user;
