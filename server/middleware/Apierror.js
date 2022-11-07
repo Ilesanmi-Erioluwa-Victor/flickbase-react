@@ -30,8 +30,12 @@ const convertToapiError = (err, req, res, next) => {
     const message = error.message || httpStatus[statusCode];
     error = new ApiError(statusCode, message);
   }
+
+  next(error);
 };
+
 module.exports = {
   ApiError,
   handleError,
+  convertToapiError,
 };
