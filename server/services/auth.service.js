@@ -1,3 +1,7 @@
+const httpStatus = require("http-status");
+
+// Middleware
+const { ApiError } = require("../middleware/Apierror");
 // Models
 const { User } = require("../models/user");
 // Services
@@ -7,7 +11,10 @@ const createUser = async (email, password) => {
   try {
     // 1. Check if user email is already taken
     if (await User.emailTaken(email)) {
-      throw new Error("Sorry, email already taken...");
+      throw new ApiError(
+        httpStatus.BAD_REQUEST,
+        "Sorry, email already taken..."
+      );
     }
 
     // else. Register new user to MongoDb
