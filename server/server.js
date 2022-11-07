@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 
 const xss = require("xss-clean");
 const mongoSanitise = require("express-mongo-sanitize");
+const passport = require("passport");
+const { jwtStrategy } = require("./middleware/passport");
 
 const routes = require("./routes");
 const { handleError, convertToapiError } = require("./middleware/Apierror");
