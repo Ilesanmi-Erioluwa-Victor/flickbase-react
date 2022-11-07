@@ -1,5 +1,7 @@
 // Models
 const { User } = require("../models/user");
+// Services
+const userService = require("./user.service");
 
 const createUser = async (email, password) => {
   try {
@@ -34,4 +36,5 @@ const signInWithEmailAndPassword = async (email, password) => {
 module.exports = {
   createUser,
   genAuthToken,
+  signInWithEmailAndPassword,
 };
