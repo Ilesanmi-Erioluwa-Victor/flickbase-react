@@ -47,6 +47,11 @@ const authController = {
       next(error);
     }
   },
+
+  // isAuth
+  async isauth(req, res, next) {
+    res.json({ message: "Awesome" });
+  },
 };
 
 module.exports = authController;
