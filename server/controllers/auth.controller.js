@@ -25,6 +25,17 @@ const authController = {
       console.log(error.message);
     }
   },
+
+  // signin
+  async signin(req, res, next) {
+    try {
+      const { email, password } = req.body;
+      const user = await authService.signInWithEmailAndPassword(
+        email,
+        password
+      );
+    } catch (error) {}
+  },
 };
 
 module.exports = authController;

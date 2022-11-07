@@ -72,7 +72,8 @@ userSchema.statics.emailTaken = async function (email) {
 userSchema.methods.generateAuthToken = async function () {
   let user = await this;
   const userObj = { sub: user._id.toHexString(), email: user.email };
-  const token = jwt.sign(userObj, process.env.DB_SECRET, { expiresIn: "30d" });
+  // removed my expiresIn token
+  const token = jwt.sign(userObj, process.env.DB_SECRET);
   return token;
 };
 

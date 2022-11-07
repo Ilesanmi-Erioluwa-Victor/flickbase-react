@@ -26,6 +26,11 @@ const genAuthToken = async (user) => {
   return token;
 };
 
+const signInWithEmailAndPassword = async (email, password) => {
+  try {
+  } catch (error) {}
+};
+
 module.exports = {
   createUser,
   genAuthToken,
