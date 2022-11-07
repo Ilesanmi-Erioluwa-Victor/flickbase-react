@@ -23,6 +23,10 @@ app.use(bodyParser.json());
 app.use(xss());
 app.use(mongoSanitise());
 
+// Passport
+app.use(passport.initialize());
+passport.use("jwt", jwtStrategy);
+
 // Routes
 app.use("/api", routes);
 
