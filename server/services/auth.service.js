@@ -31,7 +31,19 @@ const genAuthToken = async (user) => {
 const signInWithEmailAndPassword = async (email, password) => {
   try {
     const user = await userService.findUserByEmail(email);
-  } catch (error) {}
+
+    if (!user) {
+      throw new Error(`Sorry, no Email found...`);
+    }
+
+    if (!(await user.comparePassword(password))) {
+      throw new Error(`Sorry, bad Password...`);
+    }
+
+    return user;
+  } catch (error) {
+    throw error;
+  }
 };
 
 module.exports = {

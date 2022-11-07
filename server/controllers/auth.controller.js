@@ -34,13 +34,7 @@ const authController = {
         email,
         password
       );
-
-      if (!user) {
-        throw new Error(`Sorry, no Email found...`);
-      }
-    } catch (error) {
-      throw error;
-    }
+    } catch (error) {}
   },
 };
 
