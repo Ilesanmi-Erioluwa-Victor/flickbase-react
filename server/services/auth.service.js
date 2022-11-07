@@ -30,6 +30,7 @@ const genAuthToken = async (user) => {
 
 const signInWithEmailAndPassword = async (email, password) => {
   try {
+    const user = await userService.findUserByEmail(email);
   } catch (error) {}
 };
 
