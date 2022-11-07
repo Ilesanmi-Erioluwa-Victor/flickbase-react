@@ -22,7 +22,7 @@ const authController = {
 
       console.log(email, password);
     } catch (error) {
-      console.log(error.message);
+      res.status(httpStatus.BAD_REQUEST).send(error.message);
     }
   },
 
@@ -34,7 +34,16 @@ const authController = {
         email,
         password
       );
-    } catch (error) {}
+
+      const token = await authService.genAuthToken(user);
+
+      res.cookie("x-access-token", token).status(httpStatus.CREATED).send({
+        user,
+        token,
+      });
+    } catch (error) {
+      res.status(httpStatus.BAD_REQUEST).send(error.message);
+    }
   },
 };
 
