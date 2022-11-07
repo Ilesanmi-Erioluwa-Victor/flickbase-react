@@ -25,7 +25,6 @@ app.use(mongoSanitise());
 app.use("/api", routes);
 
 // Error Handling
-const convertToapiError = {};
 app.use(convertToapiError);
 app.use((err, req, res, next) => {
   handleError(err, res);
