@@ -9,7 +9,7 @@ const jwtOptions = {
 
 const jwtVerify = async (payload, done) => {
   try {
-    const user = User.findById(payload.sub);
+    const user = await User.findById(payload.sub);
 
     if (!user) {
       return done(null, false);
@@ -23,5 +23,5 @@ const jwtVerify = async (payload, done) => {
 const jwtStrategy = new JwtStrategy(jwtOptions, jwtVerify);
 
 module.exports = {
-  jwtStrategy
+  jwtStrategy,
 };

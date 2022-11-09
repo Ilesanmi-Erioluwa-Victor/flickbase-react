@@ -50,7 +50,7 @@ const authController = {
 
   // isAuth
   async isauth(req, res, next) {
-    res.json({ message: "Awesome" });
+    res.json(req.user);
   },
 };
 
