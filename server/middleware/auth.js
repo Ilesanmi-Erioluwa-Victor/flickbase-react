@@ -23,7 +23,7 @@ const auth =
       passport.authenticate(
         "jwt",
         { session: false },
-        verify(req, res, resolve, reject)
+        verify(req, res, resolve, reject, rights)
       )(req, res, next);
     })
       .then(() => next())
