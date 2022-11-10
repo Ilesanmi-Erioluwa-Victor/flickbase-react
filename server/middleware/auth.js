@@ -24,6 +24,8 @@ const verify = (req, res, resolve, reject, rights) => async (err, user) => {
 
   if (rights.length) {
     const action = rights[0];
+    const resource = rights[1];
+    const permissiom = role.can();
   }
   resolve();
 };
