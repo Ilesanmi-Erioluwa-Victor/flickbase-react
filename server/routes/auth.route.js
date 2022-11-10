@@ -9,6 +9,6 @@ router.post("/register", authController.register);
 router.post("/signin", authController.signin);
 // using auth middleware to verify user, before going to isauth route.
 router.get("/isauth", auth(), authController.isauth);
-router.post("/test", auth("createAny", "test"), authController.test);
+router.post("/testrole", auth("createAny", "test"), authController.testrole);
 
 module.exports = router;

@@ -52,6 +52,10 @@ const authController = {
   async isauth(req, res, next) {
     res.json(req.user);
   },
+
+  async testrole(req, res, next) {
+    res.json({ Message: "You are permitted" });
+  },
 };
 
 module.exports = authController;

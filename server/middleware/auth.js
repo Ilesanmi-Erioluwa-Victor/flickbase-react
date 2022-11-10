@@ -35,7 +35,7 @@ const verify = (req, res, resolve, reject, rights) => async (err, user) => {
         )
       );
     }
-    res.locals.permissiom = permission;
+    res.locals.permission = permission;
   }
   resolve();
 };
