@@ -1,13 +1,15 @@
 const accessControl = require("accesscontrol");
 
+const allRights = {
+  "create:any": ["*"],
+  "read:any": ["*"],
+  "update:any": ["*"],
+  "delete:any": ["*"],
+};
+
 let grantObject = {
   admin: {
-    test: {
-      "create:any": ["*"],
-      "read:any": ["*"],
-      "update:any": ["*"],
-      "delete:any": ["*"],
-    },
+    test: allRights,
   },
   user: {
     test: {
