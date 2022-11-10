@@ -9,7 +9,11 @@ let grantObject = {
       "delete:any": ["*"],
     },
   },
-  user: {},
+  user: {
+    test: {
+      "read:any": ["*"],
+    },
+  },
 };
 
 const role = new accessControl(grantObject);
