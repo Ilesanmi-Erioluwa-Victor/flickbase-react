@@ -25,7 +25,17 @@ const verify = (req, res, resolve, reject, rights) => async (err, user) => {
   if (rights.length) {
     const action = rights[0];
     const resource = rights[1];
-    const permissiom = role.can(req.user.role);
+    const permission = role.can(req.user.role)[action](resource);
+
+    if (!permission.granted) {
+      return reject(
+        new ApiError(
+          httpStatus.FORBIDDEN,
+          "Sorry, you can't access this page...!!!"
+        )
+      );
+    }
+    res.locals.permissiom = permission;
   }
   resolve();
 };
