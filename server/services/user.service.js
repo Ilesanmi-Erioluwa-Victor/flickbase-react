@@ -1,6 +1,5 @@
 const { ApiError } = require("../middleware/Apierror");
-const httpStatus = require("http-status"
-)
+const httpStatus = require("http-status");
 // Models
 const { User } = require("../models/user");
 
@@ -29,9 +28,9 @@ const updateUserProfile = async (req) => {
     );
 
     if (!user) {
-      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, No user found...")
+      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, No user found...");
     }
- 
+
     return user;
   } catch (error) {
     throw error;
