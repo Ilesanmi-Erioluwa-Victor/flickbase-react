@@ -16,5 +16,14 @@ const userController = {
       next(error);
     }
   },
+
+  async updateProfile(req, res, next) {
+
+    try {
+        
+    } catch (error) {
+        next(error)
+    }
+  }
 };
 module.exports = userController;
