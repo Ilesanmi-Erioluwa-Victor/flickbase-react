@@ -5,6 +5,7 @@ const router = express.Router();
 // Middleware
 const auth = require("../middleware/auth");
 
-router.route("/profile")
-.get(auth("readOwn", "profile"), userController.profile)
-module.exports = router
+router
+  .route("/profile")
+  .get(auth("readOwn", "profile"), userController.profile);
+module.exports = router;
