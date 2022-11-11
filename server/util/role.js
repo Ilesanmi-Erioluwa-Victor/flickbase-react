@@ -13,7 +13,7 @@ let grantObject = {
   },
   user: {
     profile: {
-      "read:own": ["*"],
+      "read:own": ["*", "!password", "!_id"],
       "update:own": ["*"],
     },
   },
