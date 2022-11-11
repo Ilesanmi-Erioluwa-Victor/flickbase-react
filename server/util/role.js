@@ -9,13 +9,13 @@ const allRights = {
 
 let grantObject = {
   admin: {
-    // test: allRights,
-    profile : allRights,
+    profile: allRights,
   },
   user: {
-    // test: {
-    //   "read:any": ["*"],
-    // },
+    profile: {
+      "read:own": ["*"],
+      "update:own": ["*"],
+    },
   },
 };
 
