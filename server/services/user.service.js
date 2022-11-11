@@ -9,8 +9,21 @@ const findUserById = async(_id) => {
    return User.findById(_id)
 }
 
-const updateUserProfile = async() => {
-
+const updateUserProfile = async (req) => {
+   try {
+     const user =  await User.findByIdAndUpdate({
+      _id : req.user._id,
+     },
+     {"$set" : {
+       firstname : req.body.firstname,
+       lastname : req.body.lastname,
+       age : req.body.age
+     }},
+     {new : true}
+     )
+   } catch (error) {
+    throw error
+   }
 }
 
 module.exports = {
