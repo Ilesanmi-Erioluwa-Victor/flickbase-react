@@ -9,7 +9,12 @@ const findUserById = async(_id) => {
    return User.findById(_id)
 }
 
+const updateUserProfile = async() => {
+
+}
+
 module.exports = {
   findUserByEmail,
-  findUserById
+  findUserById,
+  updateUserProfile
 };
