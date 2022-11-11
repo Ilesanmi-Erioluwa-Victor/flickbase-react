@@ -4,5 +4,13 @@ const { ApiError } = require("../middleware/Apierror");
 // Services
 const { userService } = require("../services");
 
-const userController = {};
+const userController = {
+    async profile(req, res, next) {
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
+};
 module.exports = userController;
