@@ -20,7 +20,8 @@ const userController = {
   async updateProfile(req, res, next) {
 
     try {
-       const user = await userService.updateUserProfile(req) 
+       const user = await userService.updateUserProfile(req);
+       res.json(res.locals.permission.filter(user._doc));
     } catch (error) {
         next(error)
     }
