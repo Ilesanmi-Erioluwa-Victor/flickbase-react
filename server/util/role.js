@@ -10,6 +10,7 @@ const allRights = {
 let grantObject = {
   admin: {
     test: allRights,
+    profile : allRights,
   },
   user: {
     test: {
