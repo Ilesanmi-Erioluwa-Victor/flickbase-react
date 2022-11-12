@@ -33,7 +33,7 @@ const userController = {
       const token = await authService.genAuthToken(user);
 
       //  send verification email
-      await emailService.registerEmail(email, user);
+      await emailService.registerEmail(user.email, user);
 
       res.cookie("x-access-token", token).send({
         user: res.locals.permission.filter(user._doc),
