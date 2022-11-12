@@ -43,8 +43,20 @@ const updateUserEmail =async (req) => {
     try {
      
       if(await User.emailTaken(req.body.newemail)) {
-        throw new ApiError(httpStatus.BAD_REQUEST, "Sorry, email taken already....")
+        throw new ApiError(httpStatus.NOT_FOUND, "Sorry, email taken already....")
       }
+
+      const user = await User.findOneAndUpdate(
+        {_id : req.user._id, email : req.user.email},
+        {
+          "$set" : {
+            firstname : req.body.firstname,
+            lastname : req.body.lastname,
+            age : req.body.age
+          }
+        },
+        {new : true}
+      )
 
     } catch (error) {
       throw error;
