@@ -34,7 +34,13 @@ const userController = {
 
     const token = await authService.genAuthToken(user);
 
-    res.cookie("x-access-token", token)
+    // Todo user email to user to verify..
+
+    
+    res.cookie("x-access-token", token).send({
+      user: res.locals.permission.filter(user._doc),
+      token
+    });
    
   } catch (error) {
     next(error);
