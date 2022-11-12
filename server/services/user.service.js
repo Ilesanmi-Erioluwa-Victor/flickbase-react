@@ -50,13 +50,18 @@ const updateUserEmail =async (req) => {
         {_id : req.user._id, email : req.user.email},
         {
           "$set" : {
-            firstname : req.body.firstname,
-            lastname : req.body.lastname,
-            age : req.body.age
+            email : req.body.newemail,
+            verified : false
           }
         },
         {new : true}
       )
+
+       if (!user) {
+         throw new ApiError(httpStatus.NOT_FOUND, "Sorry, No user found...");
+       }
+       
+       return user
 
     } catch (error) {
       throw error;
