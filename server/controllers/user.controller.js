@@ -25,6 +25,10 @@ const userController = {
     } catch (error) {
         next(error)
     }
-  }
+  },
+
+ async updateUserEmail(req, res, next) {
+
+ }
 };
 module.exports = userController;
