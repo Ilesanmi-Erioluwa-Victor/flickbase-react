@@ -40,6 +40,15 @@ const updateUserProfile = async (req) => {
 
 const updateUserEmail =async (req) => {
 
+    try {
+     
+      if(await User.emailTaken(req.body.newemail)) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "Sorry, email taken already....")
+      }
+
+    } catch (error) {
+      throw error;
+    }
 }
 
 
