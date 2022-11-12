@@ -89,7 +89,6 @@ userSchema.methods.comparePassword = async function (candidatePasword) {
 userSchema.methods.generateRegisterToken = async function () {
   let user = await this;
   const userObj = { sub: user._id.toHexString()};
-  // removed my expiresIn token
   const token = jwt.sign(userObj, process.env.DB_SECRET, {expiresIn : "20h"});
   return token;
 };

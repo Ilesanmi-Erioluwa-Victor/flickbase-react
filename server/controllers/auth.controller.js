@@ -1,6 +1,6 @@
 const httpStatus = require("http-status");
 
-const { authService } = require("../services");
+const { authService, emailService } = require("../services");
 
 const authController = {
   // register user

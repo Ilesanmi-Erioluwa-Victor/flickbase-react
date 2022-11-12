@@ -18,33 +18,29 @@ const userController = {
   },
 
   async updateProfile(req, res, next) {
-
     try {
-       const user = await userService.updateUserProfile(req);
-       res.json(res.locals.permission.filter(user._doc));
+      const user = await userService.updateUserProfile(req);
+      res.json(res.locals.permission.filter(user._doc));
     } catch (error) {
-        next(error)
+      next(error);
     }
   },
 
- async updateUserEmail(req, res, next) {
-  try {
+  async updateUserEmail(req, res, next) {
+    try {
+      const user = await userService.updateUserEmail(req);
 
-    const user = await userService.updateUserEmail(req);
+      const token = await authService.genAuthToken(user);
 
-    const token = await authService.genAuthToken(user);
+      // Todo user email to user to verify..
 
-    // Todo user email to user to verify..
-
-    
-    res.cookie("x-access-token", token).send({
-      user: res.locals.permission.filter(user._doc),
-      token
-    });
-   
-  } catch (error) {
-    next(error);
-  }
- }
+      res.cookie("x-access-token", token).send({
+        user: res.locals.permission.filter(user._doc),
+        token,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
 };
 module.exports = userController;
