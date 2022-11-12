@@ -37,8 +37,15 @@ const updateUserProfile = async (req) => {
   }
 };
 
+
+const updateUserEmail =async (req) => {
+
+}
+
+
 module.exports = {
   findUserByEmail,
   findUserById,
   updateUserProfile,
+  updateUserEmail,
 };
