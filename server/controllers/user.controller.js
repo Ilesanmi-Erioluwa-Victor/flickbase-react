@@ -1,3 +1,4 @@
+
 const httpStatus = require("http-status");
 const { ApiError } = require("../middleware/Apierror");
 
@@ -45,18 +46,26 @@ const userController = {
   },
 
   async verifyAccount(req, res, next) {
-        
     try {
-         const token = userService.validateToken(req.query.validation);
+      const token = userService.validateToken(req.query.validation);
 
-         const user = await userService.findUserById(token.sub);
+      const user = await userService.findUserById(token.sub);
 
-         if (!user) new ApiError(httpStatus.NOT_FOUND, "User noot Found...");
+      if (!user) new ApiError(httpStatus.NOT_FOUND, "User noot Found...");
 
-          if (user.verify) new ApiError(httpStatus.NOT_FOUND, "Already verified...");
+      if (user.verify)
+        new ApiError(httpStatus.NOT_FOUND, "Already verified...");
+
+      user.verified = true;
+      user.save();
+
+      res.status(httpStatus.CREATED).send({
+        email : user.email,
+        verified: true
+      })
     } catch (error) {
       next(error);
     }
-  }
+  },
 };
 module.exports = userController;
