@@ -8,11 +8,14 @@ const Addarticle = async (body) => {
     try {
          
         const article = new Article( {
-      
+        ...body,
+        score : parseInt(body.score)
         })
+        await article.save();
+        return article;
 
     } catch (error) {
-        
+        throw error;
     }
 }
 
