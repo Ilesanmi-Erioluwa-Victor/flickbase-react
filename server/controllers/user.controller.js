@@ -43,5 +43,9 @@ const userController = {
       next(error);
     }
   },
+
+  async verifyAccount(req, res, next) {
+    
+  }
 };
 module.exports = userController;
