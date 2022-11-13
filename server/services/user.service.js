@@ -71,7 +71,7 @@ const updateUserEmail =async (req) => {
     }
 }
 
-const validateToken = async (token) => {
+const validateToken = (token) => {
    return jwt.verify(token, process.env.DB_SECRET)
 }
 

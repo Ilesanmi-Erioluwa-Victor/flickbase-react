@@ -47,7 +47,9 @@ const userController = {
   async verifyAccount(req, res, next) {
         
     try {
-         const token = userService.validateToken(req.query.validation)
+         const token = userService.validateToken(req.query.validation);
+
+         const user = await userService.findUserById(token.sub);
     } catch (error) {
       next(error);
     }
