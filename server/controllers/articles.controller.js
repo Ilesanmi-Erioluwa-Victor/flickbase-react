@@ -11,6 +11,17 @@ const articlesController = {
         } catch (error) {
             next(error)
         }
+    },
+
+    async getArticleById(req, res, next) {
+      
+        try {
+          const _id = req.params.id;
+
+          const article = await articlesService.getArticleById(_id, req.user)
+        } catch (error) {
+          next(error);
+        }
     }
 };
 
