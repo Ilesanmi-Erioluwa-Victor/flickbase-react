@@ -12,4 +12,5 @@ router
 
   router.patch("/email", auth("updateOwn", "profile"), userController.updateUserEmail);
   router.get("/verify",userController.verifyAccount)
+  
 module.exports = router;
