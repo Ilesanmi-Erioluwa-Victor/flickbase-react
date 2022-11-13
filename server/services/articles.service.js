@@ -17,6 +17,16 @@ const Addarticle = async (body) => {
   }
 };
 
+const getArticleById = async (_id, user) => {
+  try {
+  
+    const article = await Article.findById()
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   Addarticle,
+  getArticleById,
 };
