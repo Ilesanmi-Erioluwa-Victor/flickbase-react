@@ -12,5 +12,8 @@ router.post(
   articlesController.createArticle
 );
 
+router.route("/article/:id")
+.get(auth("readAny","articles"),articlesController.getArticleById)
+
 
 module.exports = router;
