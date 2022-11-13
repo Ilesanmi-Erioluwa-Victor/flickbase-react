@@ -45,7 +45,12 @@ const userController = {
   },
 
   async verifyAccount(req, res, next) {
-    
+        
+    try {
+         const token = userService.validateToken(req.query.validation)
+    } catch (error) {
+      next(error);
+    }
   }
 };
 module.exports = userController;
