@@ -50,6 +50,10 @@ const userController = {
          const token = userService.validateToken(req.query.validation);
 
          const user = await userService.findUserById(token.sub);
+
+         if (!user) new ApiError(httpStatus.NOT_FOUND, "User noot Found...");
+
+          if (user.verify) new ApiError(httpStatus.NOT_FOUND, "Already verified...");
     } catch (error) {
       next(error);
     }
