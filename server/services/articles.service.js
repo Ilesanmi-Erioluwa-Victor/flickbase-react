@@ -55,9 +55,24 @@ const getUsersArticleById = async (_id) => {
 };
 
 
+const updateArticleById = async (_id, body) => {
+  try {
+    const article = await Article.findOneAndUpdate(
+        {_id}
+        );
+    
+
+    return article;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 
 module.exports = {
   Addarticle,
   getArticleById,
   getUsersArticleById,
+  updateArticleById,
 };
