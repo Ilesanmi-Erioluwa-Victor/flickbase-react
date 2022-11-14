@@ -24,7 +24,7 @@ const getArticleById = async (_id, user) => {
     if(!article) throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
 
     if(user.role === "user" && article.status === "draft") {
-        throw new ApiError(httpStatus.NOT_FOUND, "Sorry, you are allowed to view this route, Only admin allowed..");
+        throw new ApiError(httpStatus.NOT_FOUND, "Sorry, you are not allowed to view this route, Only admin allowed..");
     }
 
     return article;
@@ -38,8 +38,7 @@ const getArticleById = async (_id, user) => {
 const getUsersArticleById = async (_id) => {
   try {
     const article = await Article.findById(_id);
-    if (!article)
-      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
+    if (!article) throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
 
     if (article.status === "draft") {
       throw new ApiError(
@@ -58,10 +57,13 @@ const getUsersArticleById = async (_id) => {
 const updateArticleById = async (_id, body) => {
   try {
     const article = await Article.findOneAndUpdate(
-        {_id}
+        {_id},
+        {"$set" : body},
+        {new : true}
         );
-    
 
+        if (!article)throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
+    
     return article;
   } catch (error) {
     throw error;
