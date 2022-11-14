@@ -49,7 +49,7 @@ const articlesController = {
     try {
       const _id = req.params.id;
        await articlesService.deleteArticleById(_id, req.body);
-      res.send(httpStatus.OK).json({responde : " Deleted successfully..."});
+      res.status(httpStatus.OK).json({responde : " Deleted successfully..."});
     } catch (error) {
       next(error);
     }
