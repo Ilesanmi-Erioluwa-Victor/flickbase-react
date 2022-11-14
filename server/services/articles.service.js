@@ -23,7 +23,7 @@ const getArticleById = async (_id, user) => {
     const article = await Article.findById(_id);
     if(!article) throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
 
-    if(user.role === "user" && user.status === "draft") {
+    if(user.role === "user" && article.status === "draft") {
         throw new ApiError(httpStatus.NOT_FOUND, "Sorry, you are allowed to view this route, Only admin allowed..");
     }
 
