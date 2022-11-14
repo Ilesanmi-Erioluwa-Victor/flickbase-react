@@ -26,7 +26,9 @@ const getArticleById = async (_id, user) => {
     if(user.role === "user" && user.status === "draft") {
         throw new ApiError(httpStatus.NOT_FOUND, "Sorry, you are allowed to view this route, Only admin allowed..");
     }
-    
+
+    return article;
+
   } catch (error) {
     throw error;
   }
