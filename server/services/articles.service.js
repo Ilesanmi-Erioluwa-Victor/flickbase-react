@@ -70,6 +70,23 @@ const updateArticleById = async (_id, body) => {
   }
 };
 
+const deleteArticleById = async (_id, body) => {
+  try {
+    const article = await Article.findOneAndUpdate(
+      { _id },
+      { $set: body },
+      { new: true }
+    );
+
+    if (!article)
+      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
+
+    return article;
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 
 module.exports = {
@@ -77,4 +94,5 @@ module.exports = {
   getArticleById,
   getUsersArticleById,
   updateArticleById,
+  deleteArticleById,
 };
