@@ -34,7 +34,30 @@ const getArticleById = async (_id, user) => {
   }
 };
 
+
+const getUsersArticleById = async (_id) => {
+  try {
+    const article = await Article.findById(_id);
+    if (!article)
+      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
+
+    if (article.status === "draft") {
+      throw new ApiError(
+        httpStatus.NOT_FOUND,
+        "Sorry, you are allowed to view this route, Only admin allowed.."
+      );
+    }
+
+    return article;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
 module.exports = {
   Addarticle,
   getArticleById,
+  getUsersArticleById,
 };

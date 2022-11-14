@@ -24,6 +24,18 @@ const articlesController = {
         } catch (error) {
           next(error);
         }
+    },
+
+     async getUsersArticleById(req, res, next) {
+      
+        try {
+          const _id = req.params.id;
+
+          const article = await articlesService.getUsersArticleById(_id);
+          res.json(article)
+        } catch (error) {
+          next(error);
+        }
     }
 };
 
