@@ -70,18 +70,16 @@ const updateArticleById = async (_id, body) => {
   }
 };
 
-const deleteArticleById = async (_id, body) => {
+const deleteArticleById = async (_id) => {
   try {
-    const article = await Article.findOneAndUpdate(
-      { _id },
-      { $set: body },
-      { new: true }
-    );
-
-    if (!article)
-      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
-
-    return article;
+    const article = await Article.findByIdAndRemove(_id)
+     if (!article)
+       throw new ApiError(
+         httpStatus.NOT_FOUND,
+         "Sorry, no article is found..."
+       );
+   
+       return;
   } catch (error) {
     throw error;
   }
