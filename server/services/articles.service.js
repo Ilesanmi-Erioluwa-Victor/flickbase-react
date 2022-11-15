@@ -76,7 +76,7 @@ const deleteArticleById = async (_id) => {
      if (!article)
        throw new ApiError(
          httpStatus.NOT_FOUND,
-         "Sorry, no article is found..."
+         "Sorry, no article is found..., Please check your Id"
        );
    
        return;
