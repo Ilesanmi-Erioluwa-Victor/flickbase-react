@@ -20,7 +20,6 @@ router
 
 router.route("/users/article/:id").get(articlesController.getUsersArticleById);
 
-router.route("/all", )
-
+router.route("/all").get(articlesController.getAllArticles);
 
 module.exports = router;

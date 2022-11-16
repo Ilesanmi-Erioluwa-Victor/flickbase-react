@@ -48,8 +48,16 @@ const articlesController = {
   async deleteArticleById(req, res, next) {
     try {
       const _id = req.params.id;
-       await articlesService.deleteArticleById(_id, req.body);
-      res.status(httpStatus.OK).json({responde : " Deleted successfully..."});
+      await articlesService.deleteArticleById(_id, req.body);
+      res.status(httpStatus.OK).json({ responde: " Deleted successfully..." });
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  async getAllArticles(req, res, next) {
+    try {
+     
     } catch (error) {
       next(error);
     }
