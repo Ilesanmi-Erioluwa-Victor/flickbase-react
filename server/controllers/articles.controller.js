@@ -57,7 +57,8 @@ const articlesController = {
 
   async getAllArticles(req, res, next) {
     try {
-     
+     const artilces = await articlesService.allArticles(req);
+     res.json(artilces)
     } catch (error) {
       next(error);
     }
