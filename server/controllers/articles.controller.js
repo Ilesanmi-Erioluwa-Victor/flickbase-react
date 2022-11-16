@@ -63,16 +63,25 @@ const articlesController = {
       next(error);
     }
   },
-  async  getMoreArticles(req, res, next) {
+  async getMoreArticles(req, res, next) {
     try {
-      const artilces = await articlesService. moreArticles(req);
+      const artilces = await articlesService.moreArticles(req);
       res.json(artilces);
     } catch (error) {
       next(error);
     }
   },
 
- 
+  async adminPaginate(req, res, next) {
+    try {
+      const articles = await articlesService.paginateAdminArticles(req);
+      res.json(articles);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  
 };
 
 module.exports = articlesController;
