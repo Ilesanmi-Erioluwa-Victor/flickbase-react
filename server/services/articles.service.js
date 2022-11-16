@@ -105,6 +105,16 @@ const allArticles  = async (req) => {
   }
 };
 
+const moreArticles = async (req) => {
+  try {
+   
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
 
 
 module.exports = {
@@ -114,4 +124,5 @@ module.exports = {
   updateArticleById,
   deleteArticleById,
   allArticles,
+  moreArticles,
 };

@@ -57,12 +57,22 @@ const articlesController = {
 
   async getAllArticles(req, res, next) {
     try {
-     const artilces = await articlesService.allArticles(req);
-     res.json(artilces)
+      const artilces = await articlesService.allArticles(req);
+      res.json(artilces);
     } catch (error) {
       next(error);
     }
   },
+  async  getMoreArticles(req, res, next) {
+    try {
+      const artilces = await articlesService. moreArticles(req);
+      res.json(artilces);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+ 
 };
 
 module.exports = articlesController;
