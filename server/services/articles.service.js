@@ -90,9 +90,14 @@ const allArticles  = async (req) => {
    const sortby = req.query.sortby || "_id";
    const order = req.query.order || "desc";
    const limit = req.query.limit || 2;
-   
+
   try {
-  
+     const articles = 
+     await Article.find({ status : "public"})
+     .sort([sortby, order])
+     .limit(parseInt(limit));
+
+     return articles;
   } catch (error) {
     throw error;
   }
