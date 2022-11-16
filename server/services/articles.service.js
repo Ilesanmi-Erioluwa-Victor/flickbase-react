@@ -132,8 +132,11 @@ const paginateAdminArticles = async (req) => {
     const options = {
        page :req.body.page,
        limit,
-       sort : {_id : }
+       sort : {_id : "desc"}
     }
+
+    const articles = await Article.aggregatePaginate(aggQuery, options);
+    return articles;
   } catch (error) {
     throw error;
   }
