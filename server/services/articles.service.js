@@ -86,8 +86,13 @@ const deleteArticleById = async (_id) => {
 };
 
 const allArticles  = async (req) => {
-  try {
+
    const sortby = req.query.sortby || "_id";
+   const order = req.query.order || "desc";
+   const limit = req.query.limit || 2;
+   
+  try {
+  
   } catch (error) {
     throw error;
   }
