@@ -23,6 +23,10 @@ router.route("/users/article/:id").get(articlesController.getUsersArticleById);
 router.route("/all").get(articlesController.getAllArticles)
 .post(articlesController.getMoreArticles)
 
-router.post("/admin/paginate", auth("readyAny", "articles"), articlesController.adminPaginate)
+router.post(
+  "/admin/paginate",
+  auth("readAny", "articles"),
+  articlesController.adminPaginate
+);
 
 module.exports = router;

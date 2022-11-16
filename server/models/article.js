@@ -52,7 +52,7 @@ const articleSchema = mongoose.Schema({
   },
 });
 
-articleSchema.plugin(aggregatePaginate)
+articleSchema.plugin(aggregatePaginate);
 
 const Article = mongoose.model("Article", articleSchema);
 
