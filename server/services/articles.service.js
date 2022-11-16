@@ -94,7 +94,9 @@ const allArticles  = async (req) => {
   try {
      const articles = 
      await Article.find({ status : "public"})
-     .sort([sortby, order])
+     .sort([
+      [sortby, order]
+      ])
      .limit(parseInt(limit));
 
      return articles;
