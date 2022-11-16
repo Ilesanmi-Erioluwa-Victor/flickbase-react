@@ -85,6 +85,14 @@ const deleteArticleById = async (_id) => {
   }
 };
 
+const allArticles  = async (req) => {
+  try {
+   const sortby = req.query.sortby || "_id";
+  } catch (error) {
+    throw error;
+  }
+};
+
 
 
 module.exports = {
@@ -93,4 +101,5 @@ module.exports = {
   getUsersArticleById,
   updateArticleById,
   deleteArticleById,
+  allArticles,
 };
