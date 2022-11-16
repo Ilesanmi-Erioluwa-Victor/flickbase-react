@@ -20,5 +20,7 @@ router
 
 router.route("/users/article/:id").get(articlesController.getUsersArticleById);
 
+router.route("/all", )
+
 
 module.exports = router;
