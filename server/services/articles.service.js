@@ -19,26 +19,28 @@ const Addarticle = async (body) => {
 
 const getArticleById = async (_id, user) => {
   try {
-  
     const article = await Article.findById(_id);
-    if(!article) throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
+    if (!article)
+      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
 
-    if(user.role === "user" && article.status === "draft") {
-        throw new ApiError(httpStatus.NOT_FOUND, "Sorry, you are not allowed to view this route, Only admin allowed..");
+    if (user.role === "user" && article.status === "draft") {
+      throw new ApiError(
+        httpStatus.NOT_FOUND,
+        "Sorry, you are not allowed to view this route, Only admin allowed.."
+      );
     }
 
     return article;
-
   } catch (error) {
     throw error;
   }
 };
 
-
 const getUsersArticleById = async (_id) => {
   try {
     const article = await Article.findById(_id);
-    if (!article) throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
+    if (!article)
+      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
 
     if (article.status === "draft") {
       throw new ApiError(
@@ -53,17 +55,17 @@ const getUsersArticleById = async (_id) => {
   }
 };
 
-
 const updateArticleById = async (_id, body) => {
   try {
     const article = await Article.findOneAndUpdate(
-        {_id},
-        {"$set" : body},
-        {new : true}
-        );
+      { _id },
+      { $set: body },
+      { new: true }
+    );
 
-        if (!article)throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
-    
+    if (!article)
+      throw new ApiError(httpStatus.NOT_FOUND, "Sorry, no article is found...");
+
     return article;
   } catch (error) {
     throw error;
@@ -72,34 +74,30 @@ const updateArticleById = async (_id, body) => {
 
 const deleteArticleById = async (_id) => {
   try {
-    const article = await Article.findByIdAndRemove(_id)
-     if (!article)
-       throw new ApiError(
-         httpStatus.NOT_FOUND,
-         "Sorry, no article is found..., Please check your Id"
-       );
-   
-       return;
+    const article = await Article.findByIdAndRemove(_id);
+    if (!article)
+      throw new ApiError(
+        httpStatus.NOT_FOUND,
+        "Sorry, no article is found..., Please check your Id"
+      );
+
+    return;
   } catch (error) {
     throw error;
   }
 };
 
-const allArticles  = async (req) => {
-
-   const sortby = req.query.sortby || "_id";
-   const order = req.query.order || "desc";
-   const limit = req.query.limit || 2;
+const allArticles = async (req) => {
+  const sortby = req.query.sortby || "_id";
+  const order = req.query.order || "desc";
+  const limit = req.query.limit || 2;
 
   try {
-     const articles = 
-     await Article.find({ status : "public"})
-     .sort([
-      [sortby, order]
-      ])
-     .limit(parseInt(limit));
+    const articles = await Article.find({ status: "public" })
+      .sort([[sortby, order]])
+      .limit(parseInt(limit));
 
-     return articles;
+    return articles;
   } catch (error) {
     throw error;
   }
@@ -146,9 +144,6 @@ const paginateAdminArticles = async (req) => {
   }
 };
 
-
-
-
 module.exports = {
   Addarticle,
   getArticleById,
@@ -157,5 +152,5 @@ module.exports = {
   deleteArticleById,
   allArticles,
   moreArticles,
-  paginateAdminArticles,
+  paginateAdminArticles
 };
