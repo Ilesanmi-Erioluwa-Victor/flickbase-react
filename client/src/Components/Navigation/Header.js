@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 export const Header = () => {
   return (
-    <div>Header</div>
+    <nav className='navbar fixed-top'>
+      <Link to="/" className='navbar-brand d-flex align-items-center fredoka_ff'>Flickbase</Link>
+    </nav>
   )
 }
