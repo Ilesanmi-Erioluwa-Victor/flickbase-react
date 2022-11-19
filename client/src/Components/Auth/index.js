@@ -45,6 +45,17 @@ export const Auth = () => {
 
   return ( <div className="auth_container">
         <h1>Authenticate</h1>
+
+        <Box
+          component = {"form"}
+          sx= {{}}
+          onSubmit={formik.handleSubmit}
+        >
+            <TextField name="email"
+             label="Enter your email." 
+             fullwidth
+             variant="outlined"/>
+        </Box>
   </div>
    );
 };
