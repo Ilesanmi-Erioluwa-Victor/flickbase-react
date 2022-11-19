@@ -3,25 +3,38 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { useDispatch, useSelector } from "react-redux";
-import  Box  from "@mui/material/Box";
-import  TextField  from "@mui/material/TextField";
-import  Button  from "@mui/material/Butt";
-
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export const Auth = () => {
-    //   Check for users registering or logining...
-    const [register, setRegister ] = useState(false);
+  //   Check for users registering or logining...
+  const [register, setRegister] = useState(false);
 
-    // creating inputs using formik..
-    const formik = useFormik({
-     initialValues : {
-        emaiil : "",
-        password : ""
-     },
-     validationSchema : Yup.object({
-        // Validator.....
-        email : Yup.string().required("Sorry, kindly provide email,cause, it's important")
-     })
-    })
+  // creating inputs using formik..
+  const formik = useFormik({
+    initialValues: {
+      emaiil: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      // Validator.....
+      email: Yup.string()
+        .required("Sorry, kindly provide email,cause, it's important")
+        .email("Sorry, not a valid email..."),
+
+        password : Yup.string()
+        .required("Password is required for your safety...")
+    }),
+
+    onSubmit : (values)=> {
+        handleSubmit(values)
+    }
+  });
+
+  const handleSubmit= () => {
+
+  }
+  
   return <div>AUTH .....</div>;
 };
