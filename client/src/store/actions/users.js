@@ -5,6 +5,14 @@ import {createAsyncThunk } from "@reduxjs/toolkit"
 export const registerUser = createAsyncThunk(
     "users/registerUser",
     async ({email, password}, {dispatch})=> {
-
+     try {
+        
+        const response = await axios.post(`/api/auth/register`,{
+            email : email,
+            password : password
+        });
+     } catch (error) {
+        throw error
+     }
     }
 )
