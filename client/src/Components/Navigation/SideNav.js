@@ -20,10 +20,13 @@ export const SideNav = () => {
 
   return (
     <>
-    <DehazeIcon className="drawer_btn" />
+    <DehazeIcon className="drawer_btn" onClick = {()=>setState(true)}/>
 
-    <Drawer anchor={"right"} open={state} onClick ={()=> setState(false)}>
+    <Drawer anchor={"right"} open={state} onClose ={()=> setState(false)}>
+             
+             <Box sx={{width : "200"}}>
 
+             </Box>
     </Drawer>
     </>
   )
