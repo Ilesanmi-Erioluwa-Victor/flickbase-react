@@ -24,8 +24,13 @@ export const SideNav = () => {
 
     <Drawer anchor={"right"} open={state} onClose ={()=> setState(false)}>
              
-             <Box sx={{width : "200"}}>
-
+             <Box sx={{width : 200}}>
+                  <Divider />
+                  <List>
+                    <ListItem>
+                      <ListItemIcon> <HomeIcon /> </ListItemIcon>
+                    </ListItem>
+                  </List>
              </Box>
     </Drawer>
     </>
