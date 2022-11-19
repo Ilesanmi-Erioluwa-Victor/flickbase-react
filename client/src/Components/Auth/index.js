@@ -10,6 +10,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
+// Thunk (Actions)
+import { registerUser } from "../../store/actions/users";
+
 export const Auth = () => {
   //   Check for users registering or logining...
   const [register, setRegister] = useState(false);
@@ -43,6 +46,7 @@ export const Auth = () => {
   const handleSubmit = (values) => {
     // Dispatch for registering users
     if (register) {
+        Dispatch(registerUser(values))
       console.log(values, "Registering....");
     }
     // Login...
