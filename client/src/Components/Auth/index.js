@@ -71,6 +71,13 @@ export const Auth = () => {
           type={"password"}
           {...formik.getFieldProps("password ")}
         />
+
+        <div className="mt-2">
+           <Button variant="contained" color="primary" type="submit" size="large">
+            { register ? " Register " : "Login"}
+           </Button>
+        </div>
+
       </Box>
     </div>
   );
