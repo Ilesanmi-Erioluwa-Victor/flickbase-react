@@ -23,39 +23,55 @@ export const Auth = () => {
         .required("Sorry, kindly provide email,cause, it's important")
         .email("Sorry, not a valid email..."),
 
-        password : Yup.string()
-        .required("Password is required for your safety...")
+      password: Yup.string().required(
+        "Password is required for your safety..."
+      ),
     }),
 
-    onSubmit : (values)=> {
-        handleSubmit(values)
-    }
+    onSubmit: (values) => {
+      handleSubmit(values);
+    },
   });
 
-  const handleSubmit= (values) => {
+  const handleSubmit = (values) => {
     // Dispatch for registering users
-    if(register) {
-     console.log(values, "Registering....")
+    if (register) {
+      console.log(values, "Registering....");
     }
     // Login...
     else {
-       console.log(values, "Logining....");
+      console.log(values, "Logining....");
     }
-  }
+  };
 
-  return ( <div className="auth_container">
-        <h1>Authenticate</h1>
+  return (
+    <div className="auth_container">
+      <h1>Authenticate</h1>
 
-        <Box
-          component = {"form"}
-          sx= {{}}
-          onSubmit={formik.handleSubmit}
-        >
-            <TextField name="email"
-             label="Enter your email." 
-             fullwidth
-             variant="outlined"/>
-        </Box>
-  </div>
-   );
+      <Box
+        component={"form"}
+        sx={{
+          "& .MuiTextField-root": { width: "100%", marginTop: "20px" },
+        }}
+        onSubmit={formik.handleSubmit}
+      >
+        <TextField
+          name="email"
+          label="Enter your email."
+          //   fullwidth= "true"
+          variant="outlined"
+          {...formik.getFieldProps("email")}
+        />
+
+        <TextField
+          name="password"
+          label="Enter your password."
+          //   fullwidth= "true"
+          variant="outlined"
+          type={"password"}
+          {...formik.getFieldProps("password ")}
+        />
+      </Box>
+    </div>
+  );
 };
