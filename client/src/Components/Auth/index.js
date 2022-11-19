@@ -32,9 +32,19 @@ export const Auth = () => {
     }
   });
 
-  const handleSubmit= () => {
-
+  const handleSubmit= (values) => {
+    // Dispatch for registering users
+    if(register) {
+     console.log(values, "Registering....")
+    }
+    // Login...
+    else {
+       console.log(values, "Logining....");
+    }
   }
-  
-  return <div>AUTH .....</div>;
+
+  return ( <div className="auth_container">
+        <h1>Authenticate</h1>
+  </div>
+   );
 };
