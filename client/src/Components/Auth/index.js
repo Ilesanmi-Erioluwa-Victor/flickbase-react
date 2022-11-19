@@ -17,7 +17,7 @@ export const Auth = () => {
   // creating inputs using formik..
   const formik = useFormik({
     initialValues: {
-      emaiil: "",
+      email: "",
       password: "",
     },
     validationSchema: Yup.object({
@@ -60,8 +60,7 @@ export const Auth = () => {
       >
         <TextField
           name="email"
-          label="Enter your email."
-          //   fullwidth= "true"
+          label="Enter your email"
           variant="outlined"
           {...formik.getFieldProps("email")}
           {...errorHelper(formik, "email")}
@@ -69,14 +68,12 @@ export const Auth = () => {
 
         <TextField
           name="password"
-          label="Enter your password."
-          //   fullwidth= "true"
+          label="Enter your password"
+          type="password"
           variant="outlined"
-          type={"password"}
-          {...formik.getFieldProps("password ")}
+          {...formik.getFieldProps("password")}
           {...errorHelper(formik, "password")}
         />
-
         <div className="mt-2">
           <Button
             variant="contained"
