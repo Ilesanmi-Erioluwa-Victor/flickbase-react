@@ -16,6 +16,8 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 
 export const SideNav = () => {
   return (
-    <div>SideNav</div>
+    <>
+    <DehazeIcon className="drawer_btn" />
+    </>
   )
 }
