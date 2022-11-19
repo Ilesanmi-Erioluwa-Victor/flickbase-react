@@ -15,9 +15,16 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 
 export const SideNav = () => {
+
+  const [ state,  setState ] = useState(false);
+
   return (
     <>
     <DehazeIcon className="drawer_btn" />
+
+    <Drawer anchor={"right"} open={state} onClick ={()=> setState(false)}>
+
+    </Drawer>
     </>
   )
 }
