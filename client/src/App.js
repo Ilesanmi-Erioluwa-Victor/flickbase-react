@@ -1,7 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Components/Home";
 import { Header } from "./Components/Navigation/Header";
+import { Auth } from "./Components/Auth";
+
 import { Mainlayout } from "./HOC/Mainlayout";
+
 
 function App() {
   return (
