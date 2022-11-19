@@ -8,6 +8,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Drawer  from '@mui/material/Drawer';
 
+import DehazeIcon from "@mui/icons-material/Dehaze"
+import MailIcon from "@mui/icons-material/Mail"
+import HomeIcon from "@mui/icons-material/Home";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+
 export const SideNav = () => {
   return (
     <div>SideNav</div>
