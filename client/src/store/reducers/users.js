@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser } from "../actions/users";
+import { registerUser, loginUser } from "../actions/users";
 
 // Initial state before fetching api for users
 let DEFAULT_STATE = {
@@ -29,8 +29,21 @@ export const usersSlice = createSlice({
     buider
     // Register User...
     .addCase(registerUser.pending, (state)=>{
-
+      state.loading = true
     }) 
+
+    .addCase(registerUser.fulfilled, (state, action )=> {
+      state.loading = false;
+      state.data = action.payload.data;
+      state.auth = action.payload.auth;
+    })
+
+    .addCase(registerUser.rejected, (state)=>{state.loading=false})
+
+    // Login
+    .addCase(loginUser.pending, (state)=>{
+      state.loading = true;
+    })
   }
 });
 
