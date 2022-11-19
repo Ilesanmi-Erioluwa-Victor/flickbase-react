@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink} from 'react-router-dom'
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -25,18 +25,67 @@ export const SideNav = () => {
     <Drawer anchor={"right"} open={state} onClose ={()=> setState(false)}>
              
              <Box sx={{width : 200}}>
-                  <Divider />
-                  <List>
-                    <ListItem 
-                    components={Link}
-                     to={"/"}
-                     onClick = {()=>setState(false)}
+                   <List>
+                        <ListItem
+                            component={RouterLink}
+                            to="/"
+                            onClick={()=> setState(false)}
+                        >
+                            <ListItemIcon>
+                                <HomeIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Home"/>
+                        </ListItem>
 
-                    
-                    >
-                      <ListItemIcon> <HomeIcon /> </ListItemIcon>
-                    </ListItem>
-                  </List>
+                        <ListItem
+                            component={RouterLink}
+                            to="/contact"
+                            onClick={()=> setState(false)}
+                        >
+                            <ListItemIcon>
+                                <MailIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Contact"/>
+                        </ListItem>
+
+                        <ListItem
+                            component={RouterLink}
+                            to="/auth"
+                            onClick={()=> setState(false)}
+                        >
+                            <ListItemIcon>
+                                <VpnKeyIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Sign in"/>
+                        </ListItem>
+
+                        <ListItem
+                            onClick={()=> {
+                                alert('sign out')
+                                setState(false)
+                            }}
+                        >
+                            <ListItemIcon>
+                                <VpnKeyIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary="Sign out"/>
+                        </ListItem>
+
+                        <>
+                            <Divider/>
+                            <ListItem
+  
+                               component={RouterLink}
+                               to="/dashboard"
+                               onClick={()=> setState(false)}
+                            >
+                                <ListItemIcon>
+                                    <DashboardIcon/>
+                                </ListItemIcon>
+                                <ListItemText primary="Dashboard"/>
+                            </ListItem>
+                        </>
+                    </List>
              </Box>
     </Drawer>
     </>
