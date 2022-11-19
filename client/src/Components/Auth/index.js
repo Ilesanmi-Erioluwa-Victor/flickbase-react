@@ -73,11 +73,26 @@ export const Auth = () => {
         />
 
         <div className="mt-2">
-           <Button variant="contained" color="primary" type="submit" size="large">
-            { register ? " Register " : "Login"}
-           </Button>
-        </div>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            size="large"
+          >
+            {register ? " Register " : "Login"}
+          </Button>
 
+          <Button
+            className="mt-3"
+            variant="contained"
+            color="secondary"
+            type="button"
+            size="small"
+            onClick = {()=>setRegister(!register)}
+          >
+            Want to {!register ? " Register " : "Login"}
+          </Button>
+        </div>
       </Box>
     </div>
   );
