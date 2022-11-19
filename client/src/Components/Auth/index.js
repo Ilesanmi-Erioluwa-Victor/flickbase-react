@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+// Util
+import { errorHelper } from "../../Utils/tools";
+
 import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -61,6 +64,7 @@ export const Auth = () => {
           //   fullwidth= "true"
           variant="outlined"
           {...formik.getFieldProps("email")}
+          {...errorHelper(formik, "email")}
         />
 
         <TextField
@@ -70,6 +74,7 @@ export const Auth = () => {
           variant="outlined"
           type={"password"}
           {...formik.getFieldProps("password ")}
+          {...errorHelper(formik, "password")}
         />
 
         <div className="mt-2">
@@ -84,11 +89,11 @@ export const Auth = () => {
 
           <Button
             className="mt-3"
-            variant="contained"
+            variant="outlined"
             color="secondary"
             type="button"
             size="small"
-            onClick = {()=>setRegister(!register)}
+            onClick={() => setRegister(!register)}
           >
             Want to {!register ? " Register " : "Login"}
           </Button>
