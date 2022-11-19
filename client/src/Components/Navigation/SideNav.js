@@ -27,7 +27,13 @@ export const SideNav = () => {
              <Box sx={{width : 200}}>
                   <Divider />
                   <List>
-                    <ListItem>
+                    <ListItem 
+                    components={Link}
+                     to={"/"}
+                     onClick = {()=>setState(false)}
+
+                    
+                    >
                       <ListItemIcon> <HomeIcon /> </ListItemIcon>
                     </ListItem>
                   </List>
