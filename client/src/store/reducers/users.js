@@ -19,11 +19,8 @@ export const usersSlice = createSlice({
   name: "users",
   initialState: DEFAULT_STATE,
 
-  reducers : {
-
-  }
-//   End of reducers object.....
-
+  reducers: {},
+  //   End of reducers object.....
 });
 
-export default usersSlice.reducer
+export default usersSlice.reducer;
