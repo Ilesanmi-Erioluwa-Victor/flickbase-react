@@ -12,7 +12,7 @@ export const registerUser = createAsyncThunk(
             password : password
         });
 
-        console.log(response.data)
+       return {data :response.user, auth : true}
      } catch (error) {
         throw error
      }

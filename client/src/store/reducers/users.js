@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { registerUser } from "../actions/users";
 
 // Initial state before fetching api for users
 let DEFAULT_STATE = {
@@ -21,6 +22,16 @@ export const usersSlice = createSlice({
 
   reducers: {},
   //   End of reducers object.....
+
+  // PS :Wheenever your actions is returning back as async, don't put them in reducers, instead, use extraReducers
+
+  extraReducers : (buider) => {
+    buider
+    // Register User...
+    .addCase(registerUser.pending, (state)=>{
+
+    }) 
+  }
 });
 
 export default usersSlice.reducer;
