@@ -14,6 +14,10 @@ export const Auth = () => {
   //   Check for users registering or logining...
   const [register, setRegister] = useState(false);
 
+  //   Redux logic.....
+  const users = useSelector((state) => state.users);
+  const Dispatch = useDispatch();
+
   // creating inputs using formik..
   const formik = useFormik({
     initialValues: {
