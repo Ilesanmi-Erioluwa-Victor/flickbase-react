@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser, loginUser } from "../actions/users";
+import { registerUser, loginUser, isAuth } from "../actions/users";
 
 // Initial state before fetching api for users
 let DEFAULT_STATE = {
@@ -55,8 +55,23 @@ export const usersSlice = createSlice({
 
       .addCase(loginUser.rejected, (state) => {
         state.loading = false;
+      })
+
+      // isAuth...
+      .addCase(isAuth.pending, (state) => {
+        state.loading = true;
+      })
+
+      .addCase(isAuth.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = {...state.data, ...action.payload.data};
+        state.auth = action.payload.auth;
+      })
+
+      .addCase(isAuth.rejected, (state) => {
+        state.loading = false;
       });
-  }
-});
+}
+})
 
 export default usersSlice.reducer;

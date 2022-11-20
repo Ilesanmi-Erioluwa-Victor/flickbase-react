@@ -56,7 +56,7 @@ export const isAuth = createAsyncThunk(
       const request = await axios.get(`/api/auth/isauth`, getAuthHeader())
      return { data: request.data, auth: true };
     } catch (error) {
-     
+     return { data : {}, auth: false}
     }
   }
 );
