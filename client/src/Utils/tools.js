@@ -1,4 +1,5 @@
 import { BallTriangle } from "react-loader-spinner";
+import { toast } from "react-toastify"
 
 export const errorHelper = (formik, values) => ({
   error: formik.errors[values] && formik.touched[values] ? true : false,
@@ -15,3 +16,16 @@ export const Loader = ({ wrapperStyle}) => {
     </div>
   );
 };
+
+
+export const Toast = (type, msg) => {
+  switch (type) {
+    case "SUCCESS":
+      break;
+
+    case "ERROR":
+      break;
+      
+  }
+ 
+}
