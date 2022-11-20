@@ -23,7 +23,7 @@ export const usersSlice = createSlice({
   reducers: {},
   //   End of reducers object.....
 
-  // PS :Wheenever your actions is returning back as async, don't put them in reducers, instead, use extraReducers
+  // PS :Whenever your actions is returning back as async, don't put them in reducers, instead, use extraReducers
 
   extraReducers : (buider) => {
     buider
@@ -61,16 +61,14 @@ export const usersSlice = createSlice({
       .addCase(isAuth.pending, (state) => {
         state.loading = true;
       })
-
-      .addCase(isAuth.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = {...state.data, ...action.payload.data};
-        state.auth = action.payload.auth;
-      })
-
-      .addCase(isAuth.rejected, (state) => {
-        state.loading = false;
-      });
+        .addCase(isAuth.fulfilled, (state, action) => {
+          state.loading = false;
+          state.data = { ...state.data, ...action.payload.data };
+          state.auth = action.payload.auth;
+        })
+        .addCase(isAuth.rejected, (state) => {
+          state.loading = false;
+        });
 }
 })
 
