@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 // Util
-import { errorHelper } from "../../Utils/tools";
+import { errorHelper, Loader } from "../../Utils/tools";
 
 import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
@@ -58,51 +58,55 @@ export const Auth = () => {
     <div className="auth_container">
       <h1>Authenticate</h1>
 
-      <Box
-        component={"form"}
-        sx={{
-          "& .MuiTextField-root": { width: "100%", marginTop: "20px" },
-        }}
-        onSubmit={formik.handleSubmit}
-      >
-        <TextField
-          name="email"
-          label="Enter your email"
-          variant="outlined"
-          {...formik.getFieldProps("email")}
-          {...errorHelper(formik, "email")}
-        />
-
-        <TextField
-          name="password"
-          label="Enter your password"
-          type="password"
-          variant="outlined"
-          {...formik.getFieldProps("password")}
-          {...errorHelper(formik, "password")}
-        />
-        <div className="mt-2">
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            size="large"
-          >
-            {register ? " Register " : "Login"}
-          </Button>
-
-          <Button
-            className="mt-3"
+      {users.loading ? (
+        <Loader />
+      ) : (
+        <Box
+          component={"form"}
+          sx={{
+            "& .MuiTextField-root": { width: "100%", marginTop: "20px" },
+          }}
+          onSubmit={formik.handleSubmit}
+        >
+          <TextField
+            name="email"
+            label="Enter your email"
             variant="outlined"
-            color="secondary"
-            type="button"
-            size="small"
-            onClick={() => setRegister(!register)}
-          >
-            Want to {!register ? " Register " : "Login"}
-          </Button>
-        </div>
-      </Box>
+            {...formik.getFieldProps("email")}
+            {...errorHelper(formik, "email")}
+          />
+
+          <TextField
+            name="password"
+            label="Enter your password"
+            type="password"
+            variant="outlined"
+            {...formik.getFieldProps("password")}
+            {...errorHelper(formik, "password")}
+          />
+          <div className="mt-2">
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              size="large"
+            >
+              {register ? " Register " : "Login"}
+            </Button>
+
+            <Button
+              className="mt-3"
+              variant="outlined"
+              color="secondary"
+              type="button"
+              size="small"
+              onClick={() => setRegister(!register)}
+            >
+              Want to {!register ? " Register " : "Login"}
+            </Button>
+          </div>
+        </Box>
+      )}
     </div>
   );
 };

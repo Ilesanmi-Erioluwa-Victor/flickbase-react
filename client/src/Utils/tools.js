@@ -1,3 +1,5 @@
+import { BallTriangle } from "react-loader-spinner";
+
 export const errorHelper = (formik, values) => ({
   error: formik.errors[values] && formik.touched[values] ? true : false,
   helperText:
@@ -5,3 +7,11 @@ export const errorHelper = (formik, values) => ({
       ? formik.errors[values]
       : null,
 });
+
+export const Loader = () => {
+  return (
+    <div className="root_loader">
+      <BallTriangle />{" "}
+    </div>
+  );
+};
