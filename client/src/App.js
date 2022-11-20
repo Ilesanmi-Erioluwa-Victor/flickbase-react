@@ -12,20 +12,21 @@ import { Dashboard } from "./Components/Dashboard";
 import { Mainlayout } from "./HOC/Mainlayout";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+    const [loading, setLoading] = useState(true);
+   const dispatch = useDispatch();
+   const users = useSelector((state) => state.users);
 
   useEffect( ()=> {
     dispatch(isAuth())
   }, [dispatch])
 
 
-   useEffect(() => {
-     if(users.auth !==null) {
-      setLoading(false)
-     }
-   }, [users]);
+     useEffect(() => {
+       if (users.auth !== null) {
+         setLoading(false);
+       }
+     }, [users]);
+
 
 
   return (
