@@ -45,3 +45,18 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
+
+
+// thunk for autoSignin Users
+export const isAuth = createAsyncThunk(
+  "users/isAuth",
+  async () => {
+    try {
+      
+     
+    } catch (error) {
+     
+    }
+  }
+);
+
