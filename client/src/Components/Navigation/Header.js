@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { SideNav } from "./SideNav";
 import { clearNotifications } from "../../store/reducers/notifications";
+import { showToast } from "../../Utils";
 
 export const Header = () => {
   const notifications = useSelector((state) => state.notifications);
@@ -14,12 +15,14 @@ export const Header = () => {
     let { global } = notifications;
 
     if (notifications && global.error) {
-      console.log("error");
+     const msg = global.msg ? global.msg : "Error";
+     showToast("ERROR",msg)
        dispatch(clearNotifications());
     }
 
     if (notifications && global.success) {
-      console.log("success...");
+       const msg = global.msg ? global.msg : "Excellent.";
+       showToast("SUCCESS", msg);
        dispatch(clearNotifications());
     }
   }, [notifications, dispatch]);
