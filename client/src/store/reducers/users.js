@@ -27,23 +27,35 @@ export const usersSlice = createSlice({
 
   extraReducers : (buider) => {
     buider
-    // Register User...
-    .addCase(registerUser.pending, (state)=>{
-      state.loading = true
-    }) 
+      // Register User...
+      .addCase(registerUser.pending, (state) => {
+        state.loading = true;
+      })
 
-    .addCase(registerUser.fulfilled, (state, action )=> {
-      state.loading = false;
-      state.data = action.payload.data;
-      state.auth = action.payload.auth;
-    })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload.data;
+        state.auth = action.payload.auth;
+      })
 
-    .addCase(registerUser.rejected, (state)=>{state.loading=false})
+      .addCase(registerUser.rejected, (state) => {
+        state.loading = false;
+      })
 
-    // Login
-    .addCase(loginUser.pending, (state)=>{
-      state.loading = true;
-    })
+      // Login
+      .addCase(loginUser.pending, (state) => {
+        state.loading = true;
+      })
+
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload.data;
+        state.auth = action.payload.auth;
+      })
+
+      .addCase(loginUser.rejected, (state) => {
+        state.loading = false;
+      });
   }
 });
 
