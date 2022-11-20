@@ -39,6 +39,9 @@ nav .nav-link {
 .root_loader {
   text-align: center;
   margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fredoka_ff {
