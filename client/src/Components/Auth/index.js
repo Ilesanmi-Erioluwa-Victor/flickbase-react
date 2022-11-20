@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 // Util
-import { errorHelper, Loader } from "../../Utils/tools";
+import { errorHelper, Loader, showToast } from "../../Utils";
 
 import { useDispatch, useSelector } from "react-redux";
 import Box from "@mui/material/Box";
@@ -16,10 +17,15 @@ import { registerUser, loginUser } from "../../store/actions/users";
 export const Auth = () => {
   //   Check for users registering or logining...
   const [register, setRegister] = useState(false);
+    const naviagte = useNavigate();
+
 
   //   Redux logic.....
   const users = useSelector((state) => state.users);
   const Dispatch = useDispatch();
+  const notifications = useSelector((state) => state.notifications);
+
+ 
 
   // creating inputs using formik..
   const formik = useFormik({
@@ -53,6 +59,14 @@ export const Auth = () => {
      Dispatch(loginUser(values));
     }
   };
+
+  // use this for redirect users on successfully login and show toast..
+    useEffect(() => {
+      if (notifications && global.success) {
+        // redirect user...
+        naviagte("/dashbaord")
+      }
+    }, [notifications, naviagte]);
 
   return (
     <div className="auth_container">
