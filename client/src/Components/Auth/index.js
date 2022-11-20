@@ -59,7 +59,7 @@ export const Auth = () => {
       <h1>Authenticate</h1>
 
       {users.loading ? (
-        <Loader />
+        <Loader wrapperStyle={{textAlign : "center"}}/>
       ) : (
         <Box
           component={"form"}

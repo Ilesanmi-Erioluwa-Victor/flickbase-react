@@ -8,10 +8,10 @@ export const errorHelper = (formik, values) => ({
       : null,
 });
 
-export const Loader = () => {
+export const Loader = ({ wrapperStyle}) => {
   return (
     <div className="root_loader">
-      <BallTriangle />{" "}
+      <BallTriangle wrapperStyle={wrapperStyle} />{" "}
     </div>
   );
 };

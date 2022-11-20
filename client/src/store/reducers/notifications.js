@@ -6,7 +6,22 @@ export const notificationsSlice = createSlice({
     global: {},
   },
 
-  reducers: {},
+  reducers: {
+    errorGlobal: (state, action) => {
+      state.global.error = true;
+      state.global.message = action.payload;
+    },
+
+    successGlobal: (state, action) => {
+      state.global.success = true;
+      state.global.message = action.payload;
+    },
+
+    clearNotifications: (state, action) => {
+      state.global.error = {};
+      
+    },
+  },
   //   End of reducers object.....
 });
 
