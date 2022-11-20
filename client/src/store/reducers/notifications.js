@@ -17,7 +17,7 @@ export const notificationsSlice = createSlice({
       state.global.message = action.payload;
     },
 
-    clearNotifications: (state, action) => {
+    clearNotifications: (state) => {
       state.global.error = {};
       
     },
@@ -25,4 +25,6 @@ export const notificationsSlice = createSlice({
   //   End of reducers object.....
 });
 
+// Always export your reducers ....
+export const { errorGlobal, successGlobal, clearNotifications } = notificationsSlice.actions
 export default notificationsSlice.reducer;
