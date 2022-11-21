@@ -49,15 +49,14 @@ export const loginUser = createAsyncThunk(
 
 
 // thunk for autoSignin Users
-export const isAuth = createAsyncThunk(
-  "users/isAuth",
-  async () => {
-    try {
-       const request = await axios.get("/api/auth/isauth", getAuthHeader());
-       return { data: request.data, auth: true };
-    } catch (error) {
-     return { data : {}, auth: false}
-    }
+
+export const isAuth = createAsyncThunk("users/isAuth", async () => {
+  try {
+    const request = await axios.get("/api/auth/isauth", getAuthHeader());
+    return { data: request.data, auth: true };
+  } catch (error) {
+    return { data: {}, auth: false };
   }
-);
+});
+
 

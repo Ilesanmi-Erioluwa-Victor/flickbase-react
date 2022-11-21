@@ -1,6 +1,6 @@
 import { BallTriangle } from "react-loader-spinner";
 import { toast } from "react-toastify"
-import {cookie} from "react-cookie";
+import  cookie  from "react-cookie";
 
 export const errorHelper = (formik, values) => ({
   error: formik.errors[values] && formik.touched[values] ? true : false,
