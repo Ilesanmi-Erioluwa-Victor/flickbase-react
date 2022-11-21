@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser, loginUser, isAuth } from "../actions/users";
+import { registerUser, loginUser, isAuth, signOut } from "../actions/users";
 
 // Initial state before fetching api for users
 let DEFAULT_STATE = {
@@ -68,7 +68,13 @@ export const usersSlice = createSlice({
         })
         .addCase(isAuth.rejected, (state) => {
           state.loading = false;
-        });
+        })
+
+        // SignOut
+        .addCase(signOut.fulfilled, (state, action) => {
+          state.data = DEFAULT_STATE.data
+          state.auth = false;
+        })
 }
 })
 

@@ -13,12 +13,14 @@ export const registerUser = createAsyncThunk(
         password: password,
       });
 
-      dispatch( successGlobal("Welcome on board, check your email to validate your account.."))
+      dispatch(
+        successGlobal(
+          "Welcome on board, check your email to validate your account.."
+        )
+      );
       return { data: response.data.user, auth: true };
     } catch (error) {
-      dispatch(
-        errorGlobal(error.response.data.message)
-      );
+      dispatch(errorGlobal(error.response.data.message));
       throw error;
     }
   }
@@ -34,11 +36,7 @@ export const loginUser = createAsyncThunk(
         password: password,
       });
 
-         dispatch(
-           successGlobal(
-             "Welcome ..."
-           )
-         );
+      dispatch(successGlobal("Welcome ..."));
       return { data: response.data.user, auth: true };
     } catch (error) {
       dispatch(errorGlobal(error.response.data.message));
@@ -46,7 +44,6 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
-
 
 // thunk for autoSignin Users
 
@@ -59,4 +56,6 @@ export const isAuth = createAsyncThunk("users/isAuth", async () => {
   }
 });
 
-
+export const signOut = createAsyncThunk("users/signOut", async () => {
+  removeTokenCookie();
+});

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SideNav } from "./SideNav";
 import { clearNotifications } from "../../store/reducers/notifications";
 import { showToast } from "../../Utils";
+import {signOut } from "../../store/actions/users"
 
 export const Header = () => {
   const users = useSelector((state) => state.users);
@@ -27,6 +28,11 @@ export const Header = () => {
        dispatch(clearNotifications());
     }
   }, [notifications, dispatch]);
+
+
+  const SignOutUser = () => {
+    dispatch(signOut())
+  }
   return (
     <nav className="navbar fixed-top">
       <Link
@@ -35,7 +41,7 @@ export const Header = () => {
       >
         Flickbase
       </Link>
-      <SideNav users={users}/>
+      <SideNav users={users} SignOutUser={SignOutUser}/>
     </nav>
   );
 };

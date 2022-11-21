@@ -14,8 +14,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 
-export const SideNav = ({users}) => {
-  console.log(users)
+export const SideNav = ({ users, SignOutUser }) => {
+  console.log(users);
   const [state, setState] = useState(false);
 
   return (
@@ -61,7 +61,7 @@ export const SideNav = ({users}) => {
             ) : (
               <ListItem
                 onClick={() => {
-                  alert("sign out");
+                 SignOutUser()
                   setState(false);
                 }}
               >

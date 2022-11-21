@@ -1,6 +1,8 @@
 import { BallTriangle } from "react-loader-spinner";
 import { toast } from "react-toastify"
-import  { cookie }  from "react-cookie";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export const errorHelper = (formik, values) => ({
   error: formik.errors[values] && formik.touched[values] ? true : false,
@@ -38,9 +40,8 @@ export const showToast = (type, msg) => {
  
 }
 
-export const getTokenCookie = () => cookie.load("x-access-token");
-export const removeTokenCookie = () =>
-  cookie.remove("x-access-token", { path: "/" });
+export const getTokenCookie = () => cookies.set("x-access-token", "x-access-token",{ path: "/" });
+export const removeTokenCookie = () => cookies.remove("x-access-token", { path: "/" });
 export const getAuthHeader = () => {
  return { headers: { 'Authorization': `Bearer ${getTokenCookie()}` } };
 };
