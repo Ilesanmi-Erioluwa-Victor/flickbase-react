@@ -7,6 +7,7 @@ import { clearNotifications } from "../../store/reducers/notifications";
 import { showToast } from "../../Utils";
 
 export const Header = () => {
+  const users = useSelector((state) => state.users);
   const notifications = useSelector((state) => state.notifications);
   const dispatch = useDispatch();
 
@@ -34,7 +35,7 @@ export const Header = () => {
       >
         Flickbase
       </Link>
-      <SideNav />
+      <SideNav users={users}/>
     </nav>
   );
 };
