@@ -40,7 +40,8 @@ export const showToast = (type, msg) => {
  
 }
 
-export const getTokenCookie = () => cookies.set("x-access-token", "x-access-token",{ path: "/" });
+
+export const getTokenCookie = () => cookies.set("", "x-access-token", { path: "/" });
 export const removeTokenCookie = () => cookies.remove("x-access-token", { path: "/" });
 export const getAuthHeader = () => {
  return { headers: { 'Authorization': `Bearer ${getTokenCookie()}` } };
