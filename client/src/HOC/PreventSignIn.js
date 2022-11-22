@@ -8,7 +8,7 @@ export const PreventSigIn = (props) => {
         <>
         {
             props.users.auth ?
-            <Navigate to="/auth" state={{ from: location }} replace />
+            <Navigate to="/dashboard" state={{ from: location }} replace />
             :
             props.children
         }
