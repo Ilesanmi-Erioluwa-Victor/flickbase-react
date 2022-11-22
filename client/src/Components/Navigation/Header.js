@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import { SideNav } from "./SideNav";
 import { clearNotifications } from "../../store/reducers/notifications";
@@ -8,10 +8,26 @@ import { showToast } from "../../Utils";
 import {signOut } from "../../store/actions/users"
 
 export const Header = () => {
+  const location = useLocation();
   const navigate = useNavigate()
   const users = useSelector((state) => state.users);
+  const site = useSelector(state=>state.site)
   const notifications = useSelector((state) => state.notifications);
   const dispatch = useDispatch();
+
+  // useEffect For Pathname
+  useEffect( ()=> {
+    // Checking for dashboard path..
+    let pathname = location.pathname.split("/")
+    console.log(pathname)
+
+    if(pathname[1] ===  "dashboard") {
+
+    }else {
+
+    }
+    
+  },[location.pathname])
 
   // Checking for change in notifications
   useEffect(() => {
