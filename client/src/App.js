@@ -10,7 +10,7 @@ import { Auth } from "./Components/Auth";
 import { Dashboard } from "./Components/Dashboard";
 
 import { Mainlayout } from "./HOC/Mainlayout";
-import { AuthGuard } from "./HOC/AuthGuard";
+import { AuthGuard } from "./HOC/authGuard"
 
 function App() {
   const [loading, setLoading] = useState(true);
