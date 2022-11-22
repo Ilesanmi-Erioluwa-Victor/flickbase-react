@@ -17,12 +17,12 @@ export const AdminLayout = (props) => {
       <nav className="col-md-2 d-none d-md-block sidebar">
         <div>
           <List>
-            <ListItem components={Link} to="dashboard/profile">
+            <ListItem component={Link} to="profile">
               <Button variant="contained">Profile</Button>
             </ListItem>
 
             {users.data.role === "admin" && (
-              <ListItem components={Link} to="dashboard/articles">
+              <ListItem component={Link} to="articles">
                 <Button variant="contained">Articles</Button>
               </ListItem>
             )}
