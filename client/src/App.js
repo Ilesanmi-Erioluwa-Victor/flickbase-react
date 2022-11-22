@@ -14,6 +14,7 @@ import { AuthGuard } from "./HOC/authGuard"
 
 import { AdminArticles } from "./Components/Dashboard/articles";
 import { AdminProfile } from "./Components/Dashboard/profiles";
+import { DashboardMain } from "./Components/Dashboard/Main";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -48,10 +49,11 @@ function App() {
                 path="/dashboard"
                 element={
                   // <AuthGuard>
-                    <Dashboard />
+                  <Dashboard />
                   // </AuthGuard>
                 }
               >
+                <Route index element={<DashboardMain />} />
                 <Route path="profile" element={<AdminProfile />} />
                 <Route path="articles" element={<AdminArticles />} />
               </Route>
