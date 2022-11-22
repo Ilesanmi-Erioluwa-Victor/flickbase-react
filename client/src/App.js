@@ -10,24 +10,22 @@ import { Auth } from "./Components/Auth";
 import { Dashboard } from "./Components/Dashboard";
 
 import { Mainlayout } from "./HOC/Mainlayout";
+import { AuthGuard } from "./HOC/AuthGuard";
 
 function App() {
-    const [loading, setLoading] = useState(true);
-   const dispatch = useDispatch();
-   const users = useSelector((state) => state.users);
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
 
-  useEffect( ()=> {
-    dispatch(isAuth())
-  }, [dispatch])
+  useEffect(() => {
+    dispatch(isAuth());
+  }, [dispatch]);
 
-
-     useEffect(() => {
-       if (users.auth !== null) {
-         setLoading(false);
-       }
-     }, [users]);
-
-
+  useEffect(() => {
+    if (users.auth !== null) {
+      setLoading(false);
+    }
+  }, [users]);
 
   return (
     <>
@@ -42,7 +40,14 @@ function App() {
 
               <Route path="/auth" element={<Auth />} />
 
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <AuthGuard>
+                    <Dashboard />
+                  </AuthGuard>
+                }
+              />
             </Routes>
           </Mainlayout>
         </>
