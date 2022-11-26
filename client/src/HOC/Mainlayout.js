@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 export const Mainlayout = ({ children }) => {
   const site = useSelector( state=>state.site)
   return (
-    <Container className={`app_container mb-5`}>
+    <Container className={`app_container mb-5 ${site.layout}`}>
       {children}
       <ToastContainer />
     </Container>

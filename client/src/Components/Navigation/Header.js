@@ -52,7 +52,7 @@ export const Header = () => {
     navigate("/")
   }
   return (
-    <nav className="navbar fixed-top">
+    <nav className={`navbar fixed-top ${site.layout}`}>
       <Link
         to="/"
         className="navbar-brand d-flex align-items-center fredoka_ff"
