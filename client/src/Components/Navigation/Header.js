@@ -20,7 +20,6 @@ export const Header = () => {
   useEffect( ()=> {
     // Checking for dashboard path..
     let pathname = location.pathname.split("/")
-    console.log(pathname)
 
     if(pathname[1] ===  "dashboard") {
       dispatch(setLayout("dash_layout"))
