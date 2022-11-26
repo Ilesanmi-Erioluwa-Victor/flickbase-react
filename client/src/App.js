@@ -8,6 +8,7 @@ import { Home } from "./Components/Home";
 import { Header } from "./Components/Navigation/Header";
 import { Auth } from "./Components/Auth";
 import { Dashboard } from "./Components/Dashboard";
+import { AddArticles } from "./Components/Dashboard/articles/edit_add/Add";
 
 import { Mainlayout } from "./HOC/Mainlayout";
 import { AuthGuard } from "./HOC/authGuard"
@@ -56,6 +57,7 @@ function App() {
                 <Route index element={<DashboardMain />} />
                 <Route path="profile" element={<AdminProfile />} />
                 <Route path="articles" element={<AdminArticles />} />
+                <Route path="articles/add" element={<AddArticles />} />
               </Route>
               {/* end of nested dashboard route */}
             </Routes>

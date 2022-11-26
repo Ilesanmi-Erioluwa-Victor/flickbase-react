@@ -21,11 +21,17 @@ export const AdminLayout = (props) => {
               <Button variant="contained">Profile</Button>
             </ListItem>
 
-            {users.data.role === "admin" && (
+            <ListItem component={Link} to="articles">
+              <Button variant="contained">Articles</Button>
+            </ListItem>
+
+            {/* {
+            
+            users.data.role === "admin" && (
               <ListItem component={Link} to="articles">
                 <Button variant="contained">Articles</Button>
               </ListItem>
-            )}
+            )} */}
           </List>
         </div>
       </nav>
