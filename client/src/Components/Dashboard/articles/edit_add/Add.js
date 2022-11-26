@@ -33,6 +33,11 @@ export const AddArticles = () => {
 
     const formik = useFormik({
         enableReinitialize: true,
+        initialValues : "",
+        validationSchema : "",
+        onSubmit : (values)=> {
+            console.log(values)
+        }
     })
   return (
     <>
