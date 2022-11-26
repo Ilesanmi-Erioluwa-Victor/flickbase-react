@@ -32,7 +32,7 @@ export const AddArticles = () => {
     const dispatch = useDispatch()
 
     const formik = useFormik({
-        
+        enableReinitialize: true,
     })
   return (
     <>
