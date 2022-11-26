@@ -6,6 +6,7 @@ import { SideNav } from "./SideNav";
 import { clearNotifications } from "../../store/reducers/notifications";
 import { showToast } from "../../Utils";
 import {signOut } from "../../store/actions/users"
+import { setLayout } from "../../store/reducers/site"
 
 export const Header = () => {
   const location = useLocation();
@@ -22,12 +23,12 @@ export const Header = () => {
     console.log(pathname)
 
     if(pathname[1] ===  "dashboard") {
-
+      dispatch(setLayout("dash_layout"))
     }else {
-
+    dispatch(setLayout(""));
     }
-    
-  },[location.pathname])
+
+  },[location.pathname, dispatch])
 
   // Checking for change in notifications
   useEffect(() => {

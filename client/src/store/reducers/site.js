@@ -6,8 +6,14 @@ export const siteSlice = createSlice({
     layout: "",
   },
 
-  reducers: {},
+  reducers: {
+    setLayout : (state, action ) => {
+      state.layout = action.payload
+    }
+  },
   //   End of reducers object.....
 });
+
+export const { setLayout } = siteSlice.actions
 
 export default siteSlice.reducer;
