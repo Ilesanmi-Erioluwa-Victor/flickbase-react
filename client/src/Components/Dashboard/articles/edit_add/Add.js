@@ -45,6 +45,10 @@ export const AddArticles = () => {
     <>
       <>
         <AdminTitle title="Add articles" />
+
+        <form>
+            
+        </form>
       </>
     </>
   );
