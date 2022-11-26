@@ -47,7 +47,12 @@ export const AddArticles = () => {
         <AdminTitle title="Add articles" />
 
         <form className='mt-3 article_form' onSubmit={formik.handleSubmit}>
-
+            
+            <div className='form-group'>
+                <TextField 
+                styled={{}}
+                />
+            </div>
         </form>
       </>
     </>
