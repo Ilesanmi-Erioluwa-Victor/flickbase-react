@@ -35,8 +35,8 @@ export const AddArticles = () => {
 
     const formik = useFormik({
         enableReinitialize: true,
-        initialValues : "",
-        validationSchema : "",
+        initialValues : formValues,
+        validationSchema : validation,
         onSubmit : (values)=> {
             console.log(values)
         }
