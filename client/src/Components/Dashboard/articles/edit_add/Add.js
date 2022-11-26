@@ -27,6 +27,9 @@ import { visuallyHidden } from "@mui/utils";
 import { AdminTitle } from '../../../../Utils'
 
 export const AddArticles = () => {
+
+    const articles = useSelector( state=>state.articles)
+    const dispatch = useDispatch()
   return (
     <>
       <>
