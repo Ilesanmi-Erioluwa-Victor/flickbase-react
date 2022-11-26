@@ -1,3 +1,9 @@
+import { AdminTitle } from "../../Utils";
+
 export const DashboardMain = () => {
-  return <>Hello From Dashboard Main...</>;
+  return (
+  <>
+    <AdminTitle title="Dashboard" />
+  </>
+  )
 };

@@ -1,5 +1,9 @@
+import { AdminTitle } from "../../../Utils";
+
 export const AdminArticles = () => {
     return (
-        <h3>Hello from admin Articles</h3>
-    )
+      <>
+        <AdminTitle title="Articles" />
+      </>
+    );
 }
