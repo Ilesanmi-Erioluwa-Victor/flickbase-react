@@ -38,7 +38,7 @@ export const AddArticles = () => {
         initialValues : formValues,
         validationSchema : validation,
         onSubmit : (values)=> {
-            console.log(values)
+            // console.log(values)
         }
     })
   return (
