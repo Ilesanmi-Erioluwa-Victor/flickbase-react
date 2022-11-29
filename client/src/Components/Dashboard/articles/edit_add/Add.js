@@ -50,7 +50,7 @@ export const AddArticles = () => {
             
             <div className='form-group'>
                 <TextField 
-                styled={{}}
+                styled={{width : 100}}
                 />
             </div>
         </form>
